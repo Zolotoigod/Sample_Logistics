@@ -11,9 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\LogisticMapper\LogisticMapper.csproj" />
     <ProjectReference Include="..\Abstraction\Abstraction.csproj" />
     <ProjectReference Include="..\DataModels\DataModels.csproj" />
+    <ProjectReference Include="..\LogisticMapper\LogisticMapper.csproj" />
     <ProjectReference Include="..\MySqlRepositories\MySqlReposytories.csproj" />
   </ItemGroup>
 

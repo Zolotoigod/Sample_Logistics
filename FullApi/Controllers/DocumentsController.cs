@@ -1,5 +1,4 @@
-﻿using LogisticApi;
-using LogisticApi.Abstraction.Repositories;
+﻿using LogisticApi.Abstraction.Repositories;
 using LogisticApi.DBContext;
 using LogisticApi.DTO;
 using LogisticMapper;
