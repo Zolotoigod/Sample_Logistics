@@ -39,7 +39,7 @@ namespace FullApi.Controllers
             try
             {
                 var resp = await articleRepository.ReadById(id);
-                return Ok(resp ?? throw new InvalidOperationException($"Article #{id} not found"));
+                return Ok(resp);
             }
             catch (Exception ex)
             {
