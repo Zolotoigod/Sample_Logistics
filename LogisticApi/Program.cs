@@ -5,6 +5,7 @@ using MySqlRepositories.Repositories;
 using Servises;
 using NLog;
 using NLog.Web;
+using ExceptionMiddleware;
 
 var logger = LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
 logger.Debug("Init app");
@@ -38,6 +39,7 @@ try
         app.UseSwaggerUI();
     }
 
+    app.UseExeptionMiddleware();
     app.MapControllers();
 
     app.Run();
