@@ -19,7 +19,7 @@ namespace ExceptionMiddleware
         {
             try
             {
-                await next.Invoke(context);
+                await next(context);
             }
             catch (Exception ex)
             {
