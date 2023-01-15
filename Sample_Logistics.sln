@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Servises", "Servises\Servis
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogisticMapper", "LogisticMapper\LogisticMapper.csproj", "{E90CD250-DD86-4276-913B-98C5F15A7856}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionMiddleware", "ExceptionMiddleware\ExceptionMiddleware.csproj", "{F57A693E-1E92-4369-8821-FBC0A126EEA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExceptionMiddleware", "ExceptionMiddleware\ExceptionMiddleware.csproj", "{F57A693E-1E92-4369-8821-FBC0A126EEA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample_Logistic_Tests", "Sample_Logistic_Tests\Sample_Logistic_Tests.csproj", "{A47CDED2-DA98-4D69-A9D4-FA3E46A5E933}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{F57A693E-1E92-4369-8821-FBC0A126EEA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F57A693E-1E92-4369-8821-FBC0A126EEA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F57A693E-1E92-4369-8821-FBC0A126EEA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A47CDED2-DA98-4D69-A9D4-FA3E46A5E933}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A47CDED2-DA98-4D69-A9D4-FA3E46A5E933}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A47CDED2-DA98-4D69-A9D4-FA3E46A5E933}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A47CDED2-DA98-4D69-A9D4-FA3E46A5E933}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

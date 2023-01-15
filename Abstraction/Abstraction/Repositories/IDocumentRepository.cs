@@ -10,8 +10,8 @@ namespace LogisticApi.Abstraction.Repositories
         IAsyncEnumerable<Document> ReadAllItems();
         Task<Document> ReadById(Guid id);
         IAsyncEnumerable<Document> ReadCollection(int offset, int limit);
-        IAsyncEnumerable<Document> ReadCollectionByStprage(string storage);
+        IAsyncEnumerable<Document> ReadCollectionByStorage(string storage);
         int TotalItems();
-        Task UpdateById(Guid id, DocumentRequest request);
+        Task UpdateById(Guid id, UpdateDocumentRequest request);
     }
 }

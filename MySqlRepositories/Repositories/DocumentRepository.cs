@@ -66,7 +66,7 @@ namespace MySqlRepositories.Repositories
             }
         }
 
-        public async IAsyncEnumerable<Document> ReadCollectionByStprage(string market)
+        public async IAsyncEnumerable<Document> ReadCollectionByStorage(string market)
         {
             logger.LogInformation(string.Format(RepositoryMessages.ReadCollectionDocument));
             var colection = context.Documents
@@ -86,9 +86,9 @@ namespace MySqlRepositories.Repositories
                 .Where(a => !a.IsDeleted!.Value)
                 .AsAsyncEnumerable();
 
-            await foreach (var article in colection)
+            await foreach (var document in colection)
             {
-                yield return article;
+                yield return document;
             }
         }
 
@@ -96,7 +96,7 @@ namespace MySqlRepositories.Repositories
                 .Where(a => !a.IsDeleted!.Value)
                 .Count();
 
-        public async Task UpdateById(Guid id, DocumentRequest request)
+        public async Task UpdateById(Guid id, UpdateDocumentRequest request)
         {
             try
             {

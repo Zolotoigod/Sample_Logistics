@@ -65,7 +65,7 @@ namespace FullApi.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async IAsyncEnumerable<Document> ReadByMarket([FromRoute] string market)
         {
-            var collection = documentRepository.ReadCollectionByStprage(market);
+            var collection = documentRepository.ReadCollectionByStorage(market);
             await foreach (var doc in collection)
             {
                 yield return doc;
@@ -87,7 +87,7 @@ namespace FullApi.Controllers
         [HttpPatch("updateById/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] DocumentRequest model)
+        public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] UpdateDocumentRequest model)
         {
             try
             {
