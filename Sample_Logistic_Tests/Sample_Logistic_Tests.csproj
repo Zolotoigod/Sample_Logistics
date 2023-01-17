@@ -29,6 +29,7 @@
   <ItemGroup>
     <ProjectReference Include="..\DBContext\DBContext.csproj" />
     <ProjectReference Include="..\MySqlRepositories\MySqlReposytories.csproj" />
+    <ProjectReference Include="..\Servises\Servises.csproj" />
   </ItemGroup>
 
 </Project>

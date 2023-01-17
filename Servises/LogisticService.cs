@@ -40,7 +40,7 @@ namespace Servises
             return document.ToResponse(articles);
         }
 
-        public async Task<IEnumerable<ArticleResponse>> ShowArtikleForStorage(string storage)
+        public async Task<IEnumerable<ArticleResponse>> ShowArticleForStorage(string storage)
         {
             var collection = articleReposirory.ReadCollectionByStorage(storage);
             Dictionary<string, Article> cache = new ();

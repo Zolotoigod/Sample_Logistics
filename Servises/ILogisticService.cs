@@ -7,7 +7,7 @@ namespace Servises
     {
         Task<Guid> AddDocument(DocumentRequest document);
         Task<DocumentResponse> ReadDocumentWithArticle(Guid id);
-        Task<IEnumerable<ArticleResponse>> ShowArtikleForStorage(string market);
+        Task<IEnumerable<ArticleResponse>> ShowArticleForStorage(string market);
         IAsyncEnumerable<DocumentResponse> ReadDocuments();
     }
 }

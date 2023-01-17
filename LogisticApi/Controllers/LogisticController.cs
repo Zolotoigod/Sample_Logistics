@@ -63,7 +63,7 @@ namespace LogisticApi.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> ShowMarketState([FromRoute] string name)
         {
-            var collection = await service.ShowArtikleForStorage(name);
+            var collection = await service.ShowArticleForStorage(name);
             return Ok(collection);
         }
     }
