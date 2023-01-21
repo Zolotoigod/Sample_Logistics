@@ -63,7 +63,11 @@ namespace Sample_Logistic_Tests
         }
 
         [Test(Description = "Read article by id, success")]
-        public async Task ReadArticleById()
+        [TestCase("a284246e-3e9d-4d95-ad71-0f0cda7d4501", ExpectedResult = "Fish")]
+        [TestCase("cec1debb-1904-4d61-8634-df3c546632e9", ExpectedResult = "Fish")]
+        [TestCase("6f82bb83-44af-4cbd-bffd-1d31d86f6b43", ExpectedResult = "Meat")]
+        [TestCase("61797a05-60aa-4ec6-bd13-cdbd09b57ea0", ExpectedResult = "Meat")]
+        public async Task<string> ReadArticleById(string id)
         {
             //Arrange
             var context = await new TestsConfigurator().InitialiseContext(contextOptions);
@@ -71,14 +75,11 @@ namespace Sample_Logistic_Tests
                 = new ArticlesRepository(context, docLogger);
 
             //Act
-            var doc1 = await articleRepository.ReadById(Guid.Parse("cec1debb-1904-4d61-8634-df3c546632e9"));
-            var doc2 = await articleRepository.ReadById(Guid.Parse("61797a05-60aa-4ec6-bd13-cdbd09b57ea0"));
+            var doc = await articleRepository.ReadById(Guid.Parse(id));
 
             //Assert
-            Assert.False(doc1 is null);
-            Assert.False(doc2 is null);
-            Assert.True(doc1!.PositionName == "Fish");
-            Assert.True(doc2!.PositionName == "Meat");
+            Assert.False(doc is null);
+            return doc!.PositionName;
         }
 
         [Test(Description = "Read article by id, faild")]
@@ -92,10 +93,8 @@ namespace Sample_Logistic_Tests
             //Act
 
             //Assert
-            Assert.Throws<InvalidOperationException>(() =>
-            ArticleRepository.ReadById(Guid.Parse("a4642dd0-e12d-431b-9544-58303df1234f"))
-            .GetAwaiter()
-            .GetResult());
+            Assert.ThrowsAsync<InvalidOperationException>(async () =>
+            await ArticleRepository.ReadById(Guid.Parse("a4642dd0-e12d-431b-9544-58303df1234f")));
         }
 
         [Test(Description = "Read Articles by storage, success")]
@@ -164,10 +163,8 @@ namespace Sample_Logistic_Tests
             //Act
 
             //Assert
-            Assert.Throws<InvalidOperationException>(() =>
-            ArticleRepository.UpdateById(Guid.Parse("a4642dd0-e12d-431b-9544-58303df1234f"), testRequest)
-                .GetAwaiter()
-                .GetResult());
+            Assert.ThrowsAsync<InvalidOperationException>(async () =>
+            await ArticleRepository.UpdateById(Guid.Parse("a4642dd0-e12d-431b-9544-58303df1234f"), testRequest));
         }
 
         [Test(Description = "Delete Article, success")]
@@ -198,10 +195,8 @@ namespace Sample_Logistic_Tests
             //Act
 
             //Assert
-            Assert.Throws<InvalidOperationException>(() =>
-                articleRepository.DeleteById(Guid.Parse("a4642dd0-e12d-431b-9544-58303df1234f"))
-                .GetAwaiter()
-                .GetResult());
+            Assert.ThrowsAsync<InvalidOperationException>( async () =>
+                await articleRepository.DeleteById(Guid.Parse("a4642dd0-e12d-431b-9544-58303df1234f")));
         }
     }
 }

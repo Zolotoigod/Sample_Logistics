@@ -57,7 +57,9 @@ namespace Sample_Logistic_Tests
         }
 
         [Test(Description = "Read document by id, success")]
-        public async Task ReadDocumentById()
+        [TestCase("7af64e5a-3010-413e-bfad-c105c3687e22", ExpectedResult = "WarshawMarket")]
+        [TestCase("117d2dd3-6d5f-4c86-a77f-43ab3e5a1497", ExpectedResult = "GdanskMarket")]
+        public async Task<string> ReadDocumentById(string number)
         {
             //Arrange
             var context = await new TestsConfigurator().InitialiseContext(contextOptions);
@@ -65,14 +67,11 @@ namespace Sample_Logistic_Tests
                 = new DocumentRepository(context, docLogger);
 
             //Act
-            var doc1 = await documentRepository.ReadById(Guid.Parse("7af64e5a-3010-413e-bfad-c105c3687e22"));
-            var doc2 = await documentRepository.ReadById(Guid.Parse("117d2dd3-6d5f-4c86-a77f-43ab3e5a1497"));
+            var doc = await documentRepository.ReadById(Guid.Parse(number));
 
             //Assert
-            Assert.False(doc1 is null);
-            Assert.False(doc2 is null);
-            Assert.True(doc1!.Storage == "WarshawMarket");
-            Assert.True(doc2!.Storage == "GdanskMarket");
+            Assert.False(doc is null);
+            return doc!.Storage;
         }
 
         [Test(Description = "Read document by id, faild")]
