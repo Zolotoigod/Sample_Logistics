@@ -86,10 +86,8 @@ namespace Sample_Logistic_Tests
             //Act
 
             //Assert
-            Assert.Throws<InvalidOperationException>(() => 
-            documentRepository.ReadById(Guid.Parse("a4642dd0-e12d-431b-9544-58303df1234f"))
-            .GetAwaiter()
-            .GetResult());
+            Assert.ThrowsAsync<InvalidOperationException>(async () => 
+            await documentRepository.ReadById(Guid.Parse("a4642dd0-e12d-431b-9544-58303df1234f")));
         }
 
         [Test(Description = "Read documents by storage, success")]
@@ -154,10 +152,8 @@ namespace Sample_Logistic_Tests
             //Act
 
             //Assert
-            Assert.Throws<InvalidOperationException>(() =>
-            documentRepository.UpdateById(Guid.Parse("a4642dd0-e12d-431b-9544-58303df1234f"), testRequest)
-                .GetAwaiter()
-                .GetResult());
+            Assert.ThrowsAsync<InvalidOperationException>(async () =>
+            await documentRepository.UpdateById(Guid.Parse("a4642dd0-e12d-431b-9544-58303df1234f"), testRequest));
         }
 
         [Test(Description = "Delete document, success")]
@@ -188,10 +184,8 @@ namespace Sample_Logistic_Tests
             //Act
 
             //Assert
-            Assert.Throws<InvalidOperationException>(() =>
-                documentRepository.DeleteById(Guid.Parse("a4642dd0-e12d-431b-9544-58303df1234f"))
-                .GetAwaiter()
-                .GetResult());
+            Assert.ThrowsAsync<InvalidOperationException>(async () =>
+                await documentRepository.DeleteById(Guid.Parse("a4642dd0-e12d-431b-9544-58303df1234f")));
         }
     }
 }
