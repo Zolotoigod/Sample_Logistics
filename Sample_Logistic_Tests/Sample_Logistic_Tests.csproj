@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="7.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="7.0.2" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.1" />
@@ -28,6 +29,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DBContext\DBContext.csproj" />
+    <ProjectReference Include="..\LogisticApi\LogisticApi.csproj" />
     <ProjectReference Include="..\MySqlRepositories\MySqlReposytories.csproj" />
     <ProjectReference Include="..\Servises\Servises.csproj" />
   </ItemGroup>

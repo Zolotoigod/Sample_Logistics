@@ -36,4 +36,8 @@
     <ProjectReference Include="..\Servises\Servises.csproj" />
   </ItemGroup>
 
+    <ItemGroup>
+	    <InternalsVisibleTo Include="Sample_Logistic_Tests" />
+    </ItemGroup>
+
 </Project>
