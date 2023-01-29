@@ -58,7 +58,7 @@ namespace LogisticApi.Controllers
         }
 
         [HttpGet("market/state/{name}")]
-        [ProducesResponseType(typeof(ArticleResponse), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(IEnumerable<ArticleResponse>), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> ShowMarketState([FromRoute] string name)
         {

@@ -16,6 +16,8 @@ namespace LogisticMapper
                 ActionType = request.ActionType!.Value,
                 Storage = request.Storage,
                 CreateDate = DateTime.Now,
+                UpdateDate = DateTime.Now,
+                IsDeleted = false,
                 PriceBrutto = request.Articles.Sum(a => a.PriceBrutto),
                 PriceNetto = request.Articles.Sum(a => a.PriceNetto),
                 Vat = request.Articles.Sum(a => a.Vat),
